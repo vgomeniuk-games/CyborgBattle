@@ -1,5 +1,5 @@
 # CyborgBattle
-Game prototype developed using SDL2 library.
+Hack and slash 2d game developed using SDL2 library.
 Developed using Visual Studio 2017 and Visual C++ compiler.
 
 Useful guides and FAQs:
