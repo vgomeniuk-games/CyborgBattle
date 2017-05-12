@@ -90,15 +90,23 @@
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>D:\Applications\SDL2-2.0.5\lib\$(PlatformTarget)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>SDL2main.lib;SDL2.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SDL2main.lib;SDL2.lib;SDL2_image.lib;SDL2_mixer.lib;SDL2_ttf.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
     </Link>
     <CustomBuildStep>
-      <Command>copy /Y "D:\Applications\SDL2-2.0.5\lib\$(PlatformTarget)\SDL2.dll" "$(OutDir)"</Command>
+      <Command>copy /Y "D:\Applications\SDL2-2.0.5\lib\$(PlatformTarget)\SDL2.dll" "$(OutDir)";
+copy /Y "D:\Applications\SDL2-2.0.5\lib\$(PlatformTarget)\SDL2_image.dll" "$(OutDir)";
+copy /Y "D:\Applications\SDL2-2.0.5\lib\$(PlatformTarget)\SDL2_mixer.dll" "$(OutDir)";
+copy /Y "D:\Applications\SDL2-2.0.5\lib\$(PlatformTarget)\SDL2_ttf.dll" "$(OutDir)";
+copy /Y "D:\Applications\SDL2-2.0.5\lib\$(PlatformTarget)\libfreetype-6.dll" "$(OutDir)";
+copy /Y "D:\Applications\SDL2-2.0.5\lib\$(PlatformTarget)\libpng16-16.dll" "$(OutDir)";
+copy /Y "D:\Applications\SDL2-2.0.5\lib\$(PlatformTarget)\smpeg2.dll" "$(OutDir)";
+copy /Y "D:\Applications\SDL2-2.0.5\lib\$(PlatformTarget)\zlib1.dll" "$(OutDir)";
+xcopy /Y /I "$(ProjectDir)assets" "$(OutDir)assets"</Command>
     </CustomBuildStep>
     <CustomBuildStep>
-      <Message>Copy SDL2 Libraries to Build Output Folder</Message>
-      <Outputs>SDL2.dll</Outputs>
+      <Message>Copy SDL2 Libraries and Assets files to Build Output Folder</Message>
+      <Outputs>SDL2.dll;SDL2_image.dll;SDL2_mixer.dll;SDL2_ttf.dll;libfreetype-6.dll;libpng16-16.dll;smpeg2.dll;zlib1.dll;*.png;*.wav;*.ttf;*bmp</Outputs>
       <TreatOutputAsContent>true</TreatOutputAsContent>
     </CustomBuildStep>
   </ItemDefinitionGroup>
@@ -111,15 +119,23 @@
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>D:\Applications\SDL2-2.0.5\lib\$(PlatformTarget)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>SDL2main.lib;SDL2.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SDL2main.lib;SDL2.lib;SDL2_image.lib;SDL2_mixer.lib;SDL2_ttf.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
     </Link>
     <CustomBuildStep>
-      <Command>copy /Y "D:\Applications\SDL2-2.0.5\lib\$(PlatformTarget)\SDL2.dll" "$(OutDir)"</Command>
+      <Command>copy /Y "D:\Applications\SDL2-2.0.5\lib\$(PlatformTarget)\SDL2.dll" "$(OutDir)";
+copy /Y "D:\Applications\SDL2-2.0.5\lib\$(PlatformTarget)\SDL2_image.dll" "$(OutDir)";
+copy /Y "D:\Applications\SDL2-2.0.5\lib\$(PlatformTarget)\SDL2_mixer.dll" "$(OutDir)";
+copy /Y "D:\Applications\SDL2-2.0.5\lib\$(PlatformTarget)\SDL2_ttf.dll" "$(OutDir)";
+copy /Y "D:\Applications\SDL2-2.0.5\lib\$(PlatformTarget)\libfreetype-6.dll" "$(OutDir)";
+copy /Y "D:\Applications\SDL2-2.0.5\lib\$(PlatformTarget)\libpng16-16.dll" "$(OutDir)";
+copy /Y "D:\Applications\SDL2-2.0.5\lib\$(PlatformTarget)\smpeg2.dll" "$(OutDir)";
+copy /Y "D:\Applications\SDL2-2.0.5\lib\$(PlatformTarget)\zlib1.dll" "$(OutDir)";
+xcopy /Y /I "$(ProjectDir)assets" "$(OutDir)assets"</Command>
     </CustomBuildStep>
     <CustomBuildStep>
-      <Message>Copy SDL2 Libraries to Build Output Folder</Message>
-      <Outputs>SDL2.dll</Outputs>
+      <Message>Copy SDL2 Libraries and Assets files to Build Output Folder</Message>
+      <Outputs>SDL2.dll;SDL2_image.dll;SDL2_mixer.dll;SDL2_ttf.dll;libfreetype-6.dll;libpng16-16.dll;smpeg2.dll;zlib1.dll;*.png;*.wav;*.ttf;*bmp</Outputs>
       <TreatOutputAsContent>true</TreatOutputAsContent>
     </CustomBuildStep>
   </ItemDefinitionGroup>
@@ -136,15 +152,23 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalLibraryDirectories>D:\Applications\SDL2-2.0.5\lib\$(PlatformTarget)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>SDL2main.lib;SDL2.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <SubSystem>Console</SubSystem>
+      <AdditionalDependencies>SDL2main.lib;SDL2.lib;SDL2_image.lib;SDL2_mixer.lib;SDL2_ttf.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <SubSystem>Windows</SubSystem>
     </Link>
     <CustomBuildStep>
-      <Command>copy /Y "D:\Applications\SDL2-2.0.5\lib\$(PlatformTarget)\SDL2.dll" "$(OutDir)"</Command>
+      <Command>copy /Y "D:\Applications\SDL2-2.0.5\lib\$(PlatformTarget)\SDL2.dll" "$(OutDir)";
+copy /Y "D:\Applications\SDL2-2.0.5\lib\$(PlatformTarget)\SDL2_image.dll" "$(OutDir)";
+copy /Y "D:\Applications\SDL2-2.0.5\lib\$(PlatformTarget)\SDL2_mixer.dll" "$(OutDir)";
+copy /Y "D:\Applications\SDL2-2.0.5\lib\$(PlatformTarget)\SDL2_ttf.dll" "$(OutDir)";
+copy /Y "D:\Applications\SDL2-2.0.5\lib\$(PlatformTarget)\libfreetype-6.dll" "$(OutDir)";
+copy /Y "D:\Applications\SDL2-2.0.5\lib\$(PlatformTarget)\libpng16-16.dll" "$(OutDir)";
+copy /Y "D:\Applications\SDL2-2.0.5\lib\$(PlatformTarget)\smpeg2.dll" "$(OutDir)";
+copy /Y "D:\Applications\SDL2-2.0.5\lib\$(PlatformTarget)\zlib1.dll" "$(OutDir)";
+xcopy /Y /I "$(ProjectDir)assets" "$(OutDir)assets"</Command>
     </CustomBuildStep>
     <CustomBuildStep>
-      <Message>Copy SDL2 Libraries to Build Output Folder</Message>
-      <Outputs>SDL2.dll</Outputs>
+      <Message>Copy SDL2 Libraries and Assets files to Build Output Folder</Message>
+      <Outputs>SDL2.dll;SDL2_image.dll;SDL2_mixer.dll;SDL2_ttf.dll;libfreetype-6.dll;libpng16-16.dll;smpeg2.dll;zlib1.dll;*.png;*.wav;*.ttf;*bmp</Outputs>
       <TreatOutputAsContent>true</TreatOutputAsContent>
     </CustomBuildStep>
   </ItemDefinitionGroup>
@@ -161,20 +185,38 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalLibraryDirectories>D:\Applications\SDL2-2.0.5\lib\$(PlatformTarget)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>SDL2main.lib;SDL2.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <SubSystem>Console</SubSystem>
+      <AdditionalDependencies>SDL2main.lib;SDL2.lib;SDL2_image.lib;SDL2_mixer.lib;SDL2_ttf.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <SubSystem>Windows</SubSystem>
     </Link>
     <CustomBuildStep>
-      <Command>copy /Y "D:\Applications\SDL2-2.0.5\lib\$(PlatformTarget)\SDL2.dll" "$(OutDir)"</Command>
+      <Command>copy /Y "D:\Applications\SDL2-2.0.5\lib\$(PlatformTarget)\SDL2.dll" "$(OutDir)";
+copy /Y "D:\Applications\SDL2-2.0.5\lib\$(PlatformTarget)\SDL2_image.dll" "$(OutDir)";
+copy /Y "D:\Applications\SDL2-2.0.5\lib\$(PlatformTarget)\SDL2_mixer.dll" "$(OutDir)";
+copy /Y "D:\Applications\SDL2-2.0.5\lib\$(PlatformTarget)\SDL2_ttf.dll" "$(OutDir)";
+copy /Y "D:\Applications\SDL2-2.0.5\lib\$(PlatformTarget)\libfreetype-6.dll" "$(OutDir)";
+copy /Y "D:\Applications\SDL2-2.0.5\lib\$(PlatformTarget)\libpng16-16.dll" "$(OutDir)";
+copy /Y "D:\Applications\SDL2-2.0.5\lib\$(PlatformTarget)\smpeg2.dll" "$(OutDir)";
+copy /Y "D:\Applications\SDL2-2.0.5\lib\$(PlatformTarget)\zlib1.dll" "$(OutDir)";
+xcopy /Y /I "$(ProjectDir)assets" "$(OutDir)assets"</Command>
     </CustomBuildStep>
     <CustomBuildStep>
-      <Message>Copy SDL2 Libraries to Build Output Folder</Message>
-      <Outputs>SDL2.dll</Outputs>
+      <Message>Copy SDL2 Libraries and Assets files to Build Output Folder</Message>
+      <Outputs>SDL2.dll;SDL2_image.dll;SDL2_mixer.dll;SDL2_ttf.dll;libfreetype-6.dll;libpng16-16.dll;smpeg2.dll;zlib1.dll;*.png;*.wav;*.ttf;*bmp</Outputs>
       <TreatOutputAsContent>true</TreatOutputAsContent>
     </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="cleanup.cpp" />
+    <ClCompile Include="drawing_functions.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="randomNumber.cpp" />
+    <ClCompile Include="res_path.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="cleanup.h" />
+    <ClInclude Include="drawing_functions.h" />
+    <ClInclude Include="randomNumber.h" />
+    <ClInclude Include="res_path.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
