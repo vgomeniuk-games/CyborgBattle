@@ -39,8 +39,7 @@ SDL_Texture* convertSurfaceToTexture(SDL_Surface* surface, SDL_Renderer* ren, bo
 * @param clip The sub-section of the texture to draw (clipping rect)
 *		default of nullptr draws the entire texture
 */
-void renderTexture(SDL_Texture* tex, SDL_Renderer* ren, SDL_Rect dst,
-	SDL_Rect* clip = nullptr);
+void renderTexture(SDL_Texture* tex, SDL_Renderer* ren, SDL_Rect dst, SDL_Rect* clip = nullptr);
 /**
 * Draw an SDL_Texture to an SDL_Renderer at position x, y, preserving
 * the texture's width and height and taking a clip of the texture if desired
@@ -53,9 +52,7 @@ void renderTexture(SDL_Texture* tex, SDL_Renderer* ren, SDL_Rect dst,
 * @param clip The sub-section of the texture to draw (clipping rect)
 *		default of nullptr draws the entire texture
 */
-void renderTexture(SDL_Texture* tex, SDL_Renderer* ren, int x, int y,
-	SDL_Rect* clip = nullptr)
-	;
+void renderTexture(SDL_Texture* tex, SDL_Renderer* ren, int x, int y, SDL_Rect* clip = nullptr);
 
 
 /**
@@ -67,8 +64,7 @@ void renderTexture(SDL_Texture* tex, SDL_Renderer* ren, int x, int y,
 * @param renderer The renderer to load the texture in
 * @return An SDL_Texture containing the rendered message, or nullptr if something went wrong
 */
-SDL_Texture* renderText(const std::string& message, const std::string& fontFile,
-	SDL_Color color, int fontSize, SDL_Renderer* renderer);
+SDL_Texture* renderText(const std::string& message, const std::string& fontFile, SDL_Color color, int fontSize, SDL_Renderer* renderer);
 
 /**
 * Render the message we want to display to a texture for drawing
@@ -79,8 +75,7 @@ SDL_Texture* renderText(const std::string& message, const std::string& fontFile,
 * @param renderer The renderer to load the texture in
 * @return An SDL_Texture containing the rendered message, or nullptr if something went wrong
 */
-SDL_Texture* renderText(const std::string& message, TTF_Font* font,
-	SDL_Color color, SDL_Renderer* renderer);
+SDL_Texture* renderText(const std::string& message, TTF_Font* font, SDL_Color color, SDL_Renderer* renderer);
 
 
 bool saveScreenshotBMP(std::string filepath, SDL_Window* SDLWindow, SDL_Renderer* SDLRenderer);
