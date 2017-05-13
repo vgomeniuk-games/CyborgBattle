@@ -208,6 +208,8 @@ xcopy /Y /I "$(ProjectDir)assets" "$(OutDir)assets"</Command>
   <ItemGroup>
     <ClCompile Include="cleanup.cpp" />
     <ClCompile Include="drawing.cpp" />
+    <ClCompile Include="frame.cpp" />
+    <ClCompile Include="globals.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="randomNumber.cpp" />
     <ClCompile Include="assetPath.cpp" />
@@ -216,6 +218,8 @@ xcopy /Y /I "$(ProjectDir)assets" "$(OutDir)assets"</Command>
   <ItemGroup>
     <ClInclude Include="cleanup.h" />
     <ClInclude Include="drawing.h" />
+    <ClInclude Include="frame.h" />
+    <ClInclude Include="globals.h" />
     <ClInclude Include="randomNumber.h" />
     <ClInclude Include="assetPath.h" />
     <ClInclude Include="timeController.h" />
