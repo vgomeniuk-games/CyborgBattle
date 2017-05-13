@@ -7,13 +7,9 @@
 #include "cleanup.h"
 #include "assetPath.h"
 #include "drawing.h"
+#include "globals.h"
 
 
-const int WIDTH = 640;
-const int HEIGHT = 352;
-const int SCALE = 2;
-const float PI = 3.14159;
-const bool DEBUG = true;
 
 
 
@@ -27,7 +23,7 @@ int main(int argc, char **argv)
 
 	// Setup window
 	SDL_Window* window = SDL_CreateWindow("Cyborg Battle", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
-		WIDTH * SCALE, HEIGHT * SCALE, SDL_WINDOW_SHOWN /* SDL_WINDOW_FULLSCREEN */
+		Globals::WIDTH * Globals::SCALE, Globals::HEIGHT * Globals::SCALE, SDL_WINDOW_SHOWN /* SDL_WINDOW_FULLSCREEN */
 	);
 	if (window == nullptr) {
 		SDL_Quit();
@@ -36,8 +32,8 @@ int main(int argc, char **argv)
 	}
 
 	// Setup renderer
-	SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
-	if (renderer == nullptr) {
+	Globals::renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
+	if (Globals::renderer == nullptr) {
 		cleanup(window);
 		SDL_Quit();
 		std::cout << "Renderer error" << std::endl;
@@ -45,11 +41,11 @@ int main(int argc, char **argv)
 	}
 
 	// Renderer size before scaling to the screen size dimensions if created window
-	SDL_RenderSetLogicalSize(renderer, WIDTH, HEIGHT);
+	SDL_RenderSetLogicalSize(Globals::renderer, Globals::WIDTH, Globals::HEIGHT);
 
 	// Initialise SDL_image
 	if ((IMG_Init(IMG_INIT_PNG) & IMG_INIT_PNG) != IMG_INIT_PNG) {
-		cleanup(renderer);
+		cleanup(Globals::renderer);
 		cleanup(window);
 		SDL_Quit();
 		std::cout << "SDL_image not initialised" << std::endl;
@@ -58,7 +54,7 @@ int main(int argc, char **argv)
 	
 	// Initialise text to font
 	if (TTF_Init() != 0) {
-		cleanup(renderer);
+		cleanup(Globals::renderer);
 		cleanup(window);
 		SDL_Quit();
 		std::cout << "SDL_ttf not initialised" << std::endl;
@@ -67,7 +63,7 @@ int main(int argc, char **argv)
 
 	// Initialise SDL_mixer
 	if (Mix_OpenAudio(22050, MIX_DEFAULT_FORMAT, 2, 4096) == -1) {
-		cleanup(renderer);
+		cleanup(Globals::renderer);
 		cleanup(window);
 		SDL_Quit();
 		std::cout << "SDL_mixer not initialised" << std::endl;
@@ -76,15 +72,15 @@ int main(int argc, char **argv)
 
 	// Load texture to draw
 	std::string resPath = getResourcePath("assets");
-	SDL_Texture* texture = loadTexture(resPath + "map.png", renderer);
+	SDL_Texture* texture = loadTexture(resPath + "map.png", Globals::renderer);
 
 	// Run game for 5000 ticks (5000ms)
 	while (SDL_GetTicks() < 5000) {
-		SDL_RenderClear(renderer);
-		renderTexture(texture, renderer, 0, 0);
-		SDL_RenderPresent(renderer);
+		SDL_RenderClear(Globals::renderer);
+		renderTexture(texture, Globals::renderer, 0, 0);
+		SDL_RenderPresent(Globals::renderer);
 	}
-	cleanup(renderer);
+	cleanup(Globals::renderer);
 	cleanup(window);
 	cleanup(texture);
 	SDL_Quit();
