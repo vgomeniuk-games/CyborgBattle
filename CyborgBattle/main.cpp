@@ -5,12 +5,16 @@
 #include <SDL_image.h>
 #include <SDL_ttf.h>
 #include "cleanup.h"
-#include "res_path.h"
-#include "drawing_functions.h"
+#include "assetPath.h"
+#include "drawing.h"
 
 
-static int WIDTH = 640;
-static int HEIGHT = 352;
+const int WIDTH = 640;
+const int HEIGHT = 352;
+const int SCALE = 2;
+const float PI = 3.14159;
+const bool DEBUG = true;
+
 
 
 int main(int argc, char **argv)
@@ -23,7 +27,7 @@ int main(int argc, char **argv)
 
 	// Setup window
 	SDL_Window* window = SDL_CreateWindow("Cyborg Battle", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
-		WIDTH, HEIGHT, SDL_WINDOW_SHOWN /* SDL_WINDOW_FULLSCREEN */
+		WIDTH * SCALE, HEIGHT * SCALE, SDL_WINDOW_SHOWN /* SDL_WINDOW_FULLSCREEN */
 	);
 	if (window == nullptr) {
 		SDL_Quit();
