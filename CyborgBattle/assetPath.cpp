@@ -1,4 +1,4 @@
-#include "res_path.h"
+#include "assetPath.h"
 
 /*
 * Get the resource path for resources located in assetsDir/subDir

@@ -207,16 +207,18 @@ xcopy /Y /I "$(ProjectDir)assets" "$(OutDir)assets"</Command>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="cleanup.cpp" />
-    <ClCompile Include="drawing_functions.cpp" />
+    <ClCompile Include="drawing.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="randomNumber.cpp" />
-    <ClCompile Include="res_path.cpp" />
+    <ClCompile Include="assetPath.cpp" />
+    <ClCompile Include="timeController.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="cleanup.h" />
-    <ClInclude Include="drawing_functions.h" />
+    <ClInclude Include="drawing.h" />
     <ClInclude Include="randomNumber.h" />
-    <ClInclude Include="res_path.h" />
+    <ClInclude Include="assetPath.h" />
+    <ClInclude Include="timeController.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

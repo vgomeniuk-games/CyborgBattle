@@ -21,13 +21,16 @@
     <ClCompile Include="cleanup.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="drawing_functions.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="randomNumber.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="res_path.cpp">
+    <ClCompile Include="drawing.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="assetPath.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="timeController.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -35,13 +38,16 @@
     <ClInclude Include="cleanup.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="drawing_functions.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="randomNumber.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="res_path.h">
+    <ClInclude Include="drawing.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="assetPath.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="timeController.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
