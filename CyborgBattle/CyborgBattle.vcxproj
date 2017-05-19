@@ -206,20 +206,32 @@ xcopy /Y /I "$(ProjectDir)assets" "$(OutDir)assets"</Command>
     </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="animation.cpp" />
+    <ClCompile Include="animationSet.cpp" />
     <ClCompile Include="cleanup.cpp" />
     <ClCompile Include="drawing.cpp" />
     <ClCompile Include="frame.cpp" />
     <ClCompile Include="globals.cpp" />
+    <ClCompile Include="groupBuilder.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="randomNumber.cpp" />
     <ClCompile Include="assetPath.cpp" />
     <ClCompile Include="timeController.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="animation.h" />
+    <ClInclude Include="animationSet.h" />
     <ClInclude Include="cleanup.h" />
+    <ClInclude Include="dataGroupType.h" />
     <ClInclude Include="drawing.h" />
     <ClInclude Include="frame.h" />
     <ClInclude Include="globals.h" />
+    <ClInclude Include="group.h" />
+    <ClInclude Include="groupBox.h" />
+    <ClInclude Include="groupBuilder.h" />
+    <ClInclude Include="groupNumber.h" />
+    <ClInclude Include="groupPosition.h" />
+    <ClInclude Include="groupString.h" />
     <ClInclude Include="randomNumber.h" />
     <ClInclude Include="assetPath.h" />
     <ClInclude Include="timeController.h" />
