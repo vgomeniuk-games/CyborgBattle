@@ -10,7 +10,7 @@ void TimeController::updateTime() {
 	}
 	else {
 		Uint32 timeDiff = SDL_GetTicks() - lastUpdate;
-		deltaTime = timeDiff / 1000.0;  // milliseconds => seconds
+		deltaTime = static_cast<float>(timeDiff) / 1000.0f;  // milliseconds => seconds
 	}
 	lastUpdate = SDL_GetTicks();
 }

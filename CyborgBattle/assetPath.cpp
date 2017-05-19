@@ -11,14 +11,14 @@
 *
 * Paths returned will be $(ProjectDir)/assetsDir/subDir
 */
-std::string getResourcePath(const std::string &assetsDir, const std::string &subDir){
+std::string getResourcePath(const std::string& assetsDir, const std::string& subDir){
 	// We need to choose the path separator properly based on which
 	// platform we're running on, since Windows uses a different
 	// separator than most systems
 #ifdef _WIN32
-	const char PATH_SEP = '\\';
+	const static char PATH_SEP = '\\';
 #else
-	const char PATH_SEP = '/';
+	const static char PATH_SEP = '/';
 #endif
 
 	// This will hold the base resource path: $(ProjectDir)/assetsDir/

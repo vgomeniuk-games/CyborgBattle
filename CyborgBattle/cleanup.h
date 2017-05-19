@@ -5,7 +5,6 @@
 #include <SDL.h>
 
 
-
 void cleanup(SDL_Window *win);
 
 void cleanup(SDL_Renderer *ren);

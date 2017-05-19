@@ -9,13 +9,6 @@ enum State { Play, Pause };
 
 class TimeController {
 public:
-	static TimeController controller;
-
-	State state;
-	Uint32 lastUpdate;  // Last counter of ticks
-	float deltaTime /*seconds*/;
-
-public:
 	TimeController();
 
 	/* Update lastUpdate counter and deltaTime */
@@ -25,6 +18,13 @@ public:
 	void pause();
 	void resume();
 	void reset();
+
+private:
+	static TimeController controller;
+	State state;
+	Uint32 lastUpdate;  // Last counter of ticks
+	float deltaTime /*seconds*/;
+
 };
 
 #endif // !TIMECONTROLLER_H

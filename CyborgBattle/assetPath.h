@@ -16,6 +16,6 @@
 *
 * Paths returned will be $(ProjectDir)/assetsDir/subDir
 */
-std::string getResourcePath(const std::string &assetsDir = "", const std::string &subDir = "");
+std::string getResourcePath(const std::string& assetsDir = "", const std::string& subDir = "");
 
 #endif
