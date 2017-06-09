@@ -208,7 +208,21 @@ Direction Entity::angleToDirection(float angle) {
 	return Direction::Up;
 }
 
-void Entity::remove(bool inactive, bool del) {}
+void Entity::remove(bool all, bool del) {
+	for (auto entity = entities.begin(); entity != entities.end(); ) {
+		if (all || !(*entity)->active) {
+			if (del) {
+				delete (*entity);
+			}
+			entity = entities.erase(entity);
+			continue;
+		}
+		++entity;
+	}
+}
 
-bool Entity::operator<(Entity& other) { return false; }
+bool Entity::operator<(Entity& other) {
+	// Compare depth of entity on screen
+	return this->y < other.y;
+}
 
