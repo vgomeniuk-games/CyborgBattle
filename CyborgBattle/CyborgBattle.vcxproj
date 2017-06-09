@@ -210,6 +210,7 @@ xcopy /Y /I "$(ProjectDir)assets" "$(OutDir)assets"</Command>
     <ClCompile Include="animationSet.cpp" />
     <ClCompile Include="cleanup.cpp" />
     <ClCompile Include="drawing.cpp" />
+    <ClCompile Include="entity.cpp" />
     <ClCompile Include="frame.cpp" />
     <ClCompile Include="globals.cpp" />
     <ClCompile Include="groupBuilder.cpp" />
@@ -224,6 +225,7 @@ xcopy /Y /I "$(ProjectDir)assets" "$(OutDir)assets"</Command>
     <ClInclude Include="cleanup.h" />
     <ClInclude Include="dataGroupType.h" />
     <ClInclude Include="drawing.h" />
+    <ClInclude Include="entity.h" />
     <ClInclude Include="frame.h" />
     <ClInclude Include="globals.h" />
     <ClInclude Include="group.h" />
