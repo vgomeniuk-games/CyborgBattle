@@ -1,8 +1,8 @@
 #include "timeController.h"
 
-TimeController::TimeController() : deltaTime{ 0 }, lastUpdate{ 0 }, state{State::Play} {
+TimeController TimeController::controller;
 
-}
+TimeController::TimeController() : state(State::Play) , lastUpdate(0) , deltaTime(0.0) {}
 
 void TimeController::updateTime() {
 	if (state == State::Pause) {
@@ -15,12 +15,12 @@ void TimeController::updateTime() {
 	lastUpdate = SDL_GetTicks();
 }
 
-void TimeController::pause() {
-	state = State::Pause;
-}
-void TimeController::resume() {
-	state = State::Play;
-}
+void TimeController::pause() { state = State::Pause; }
+
+void TimeController::resume() { state = State::Play; }
+
+float TimeController::getDeltaTime() { return deltaTime; }
+
 void TimeController::reset() {
 	deltaTime = 0;
 	lastUpdate = SDL_GetTicks();

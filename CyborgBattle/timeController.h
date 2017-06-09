@@ -5,7 +5,7 @@
 #include <SDL.h>
 
 /* Possible game states */
-enum State { Play, Pause };
+enum class State { Play, Pause };
 
 class TimeController {
 public:
@@ -19,11 +19,15 @@ public:
 	void resume();
 	void reset();
 
-private:
+	float getDeltaTime();
+
+public:
 	static TimeController controller;
+
+private:
+	float deltaTime /*seconds*/;
 	State state;
 	Uint32 lastUpdate;  // Last counter of ticks
-	float deltaTime /*seconds*/;
 
 };
 
