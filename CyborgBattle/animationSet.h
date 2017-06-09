@@ -20,7 +20,7 @@ public:
 	 * if you need an alternative white version of the sprite sheet, then make this last option true (maybe move this out of this class? not sure)
 	*/
 	void loadAnimationSet(std::string fileName, std::list<DataGroupType>& groupTypes, bool setColorKey = false, int transparentPixelIndex = 0, bool createWhiteTexture = false);
-
+	SDL_Texture* getSpriteSheet();
 private:
 	std::string imageName;
 	SDL_Texture* spriteSheet = nullptr;
