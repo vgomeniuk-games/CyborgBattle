@@ -214,6 +214,7 @@ xcopy /Y /I "$(ProjectDir)assets" "$(OutDir)assets"</Command>
     <ClCompile Include="frame.cpp" />
     <ClCompile Include="globals.cpp" />
     <ClCompile Include="groupBuilder.cpp" />
+    <ClCompile Include="livingEntity.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="randomNumber.cpp" />
     <ClCompile Include="assetPath.cpp" />
@@ -234,6 +235,7 @@ xcopy /Y /I "$(ProjectDir)assets" "$(OutDir)assets"</Command>
     <ClInclude Include="groupNumber.h" />
     <ClInclude Include="groupPosition.h" />
     <ClInclude Include="groupString.h" />
+    <ClInclude Include="livingEntity.h" />
     <ClInclude Include="randomNumber.h" />
     <ClInclude Include="assetPath.h" />
     <ClInclude Include="timeController.h" />
