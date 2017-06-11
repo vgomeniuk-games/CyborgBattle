@@ -18,7 +18,7 @@ public:
 		data.push_back(r);
 	}
 	inline void draw() { /* TODO */ }
-
+	inline float getFirst() { return data.front(); }
 private:
 	std::list<float> data;
 

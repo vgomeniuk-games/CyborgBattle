@@ -19,6 +19,7 @@ public:
 		data.push_back(box);
 	}
 	inline void draw(){ /* TODO */ }
+	inline SDL_Rect getFirst() { return data.front(); }
 
 private:
 	std::list<SDL_Rect> data;

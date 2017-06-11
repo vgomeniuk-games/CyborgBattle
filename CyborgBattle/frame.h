@@ -13,6 +13,8 @@ public:
 	void draw(SDL_Texture* spriteSheet, float x, float y);
 	void loadFrame(std::ifstream& file, std::list<DataGroupType>& groupTypes);
 	int getFrameNumber() { return frameNumber; };
+	std::list<Group*> getFrameData();
+	inline SDL_Point getOffset() { return offSet; }\
 
 private:
 	int frameNumber;  // Frame index
