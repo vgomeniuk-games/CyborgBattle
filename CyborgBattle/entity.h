@@ -33,12 +33,13 @@ public:
 
 	// Overloaded
 	bool operator<(Entity& other);
-	
-private:
-	Direction direction;
+
+protected:
+	Frame* currentFrame;
 	float x;
 	float y;
 	bool solid = true;
+	Direction direction;
 	bool collideWithSolids = true;
 	bool active = true;
 	bool moving = true;
@@ -58,7 +59,6 @@ private:
 
 	AnimationSet* animations;
 	Animation* currentAnimation;
-	Frame* currentFrame;
 	float frameTimer;
 
 	// Collection of all entities
