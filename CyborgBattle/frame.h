@@ -14,7 +14,8 @@ public:
 	void loadFrame(std::ifstream& file, std::list<DataGroupType>& groupTypes);
 	int getFrameNumber() { return frameNumber; };
 	std::list<Group*> getFrameData();
-	inline SDL_Point getOffset() { return offSet; }\
+	inline SDL_Point getOffset() { return offSet; }
+	inline float getDuration() { return duration; }
 
 private:
 	int frameNumber;  // Frame index

@@ -8,7 +8,6 @@ const int Direction::Up = 0;
 const int Direction::Down = 1;
 const int Direction::Left = 2;
 const int Direction::Right = 3;
-const int Direction::None = -1;
 
 void Entity::update() {}
 

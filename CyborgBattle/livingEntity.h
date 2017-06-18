@@ -11,6 +11,9 @@ public:
 	virtual void die() = 0;
 	virtual void updateInvincibleTimer();
 
+	inline int getDamage() { return damage; };
+	inline SDL_Rect getHitBox() { return hitBox; };
+
 	void draw() override;
 
 protected:

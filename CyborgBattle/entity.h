@@ -8,7 +8,12 @@
 #include "animation.h"
 #include "frame.h"
 
-struct Direction { static const int Up; static const int Down; static const int Left; static const int Right; static const int None; };
+struct Direction {
+	static const int Up;
+	static const int Down;
+	static const int Left;
+	static const int Right;
+};
 
 // Abstract
 class Entity {
@@ -20,6 +25,9 @@ public:
 	virtual void updateCollisionBox();
 	virtual void changeAnimation(/*Direction*/int newState, bool reset) = 0;
 	virtual void updateCollisions();
+
+	inline bool isActive() { return active; };
+	inline std::string getType() { return type; };
 
 	// Helper functions (static)
 	static float getDistance(SDL_Rect& r1, SDL_Rect& r2);
