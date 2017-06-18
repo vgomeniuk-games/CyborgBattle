@@ -13,7 +13,7 @@ public:
 
 	void draw() override;
 
-private:
+protected:
 	int hp;
 	int hpMax;
 	SDL_Rect hitBox;
