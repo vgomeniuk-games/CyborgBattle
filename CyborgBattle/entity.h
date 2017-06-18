@@ -8,7 +8,7 @@
 #include "animation.h"
 #include "frame.h"
 
-enum class Direction { Up, Down, Left, Right, None };
+struct Direction { static const int Up; static const int Down; static const int Left; static const int Right; static const int None; };
 
 // Abstract
 class Entity {
@@ -18,7 +18,7 @@ public:
 	virtual void move(float angle);
 	virtual void updateMovememnt();
 	virtual void updateCollisionBox();
-	virtual void changeAnimation(Direction newState, bool reset) = 0;
+	virtual void changeAnimation(/*Direction*/int newState, bool reset) = 0;
 	virtual void updateCollisions();
 
 	// Helper functions (static)
@@ -28,7 +28,7 @@ public:
 	static float getAngle(float x1, float y1, float x2, float y2);
 	static float getAngle(SDL_Rect& r1, SDL_Rect& r2);
 	static bool checkCollision(SDL_Rect& r1, SDL_Rect& r2);
-	static Direction angleToDirection(float angle);
+	static /*Direction*/int angleToDirection(float angle);
 	static void remove(bool all = false, bool del = false);  // Clean [inactive] enities [, and delete them]
 
 	// Overloaded
@@ -39,7 +39,7 @@ protected:
 	float x;
 	float y;
 	bool solid = true;
-	Direction direction;
+	/*Direction*/int direction;
 	bool collideWithSolids = true;
 	bool active = true;
 	bool moving = true;

@@ -4,6 +4,11 @@
 #include "timeController.h"
 
 std::list<Entity*> Entity::entities;
+const int Direction::Up = 0;
+const int Direction::Down = 1;
+const int Direction::Left = 2;
+const int Direction::Right = 3;
+const int Direction::None = -1;
 
 void Entity::update() {}
 
@@ -23,7 +28,7 @@ void Entity::move(float angle) {
 	moveSpeed = moveSpeedMax;
 	this->angle = angle;
 
-	Direction newDirection = angleToDirection(angle);
+	/*Direction*/int newDirection = angleToDirection(angle);
 	if (this->direction != newDirection) {
 		direction = newDirection;
 		changeAnimation(direction, false);
@@ -195,7 +200,7 @@ bool Entity::checkCollision(SDL_Rect& r1, SDL_Rect& r2) {
 	return false;
 }
 
-Direction Entity::angleToDirection(float angle) {
+/*Direction*/int Entity::angleToDirection(float angle) {
 	if ((angle >= 0 && angle <= 45) || (angle >= 315 && angle <= 360)) {
 		return Direction::Right;
 	}
