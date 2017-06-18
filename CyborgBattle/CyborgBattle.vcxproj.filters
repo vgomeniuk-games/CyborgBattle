@@ -13,102 +13,132 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\Utilities">
+      <UniqueIdentifier>{6f297b1d-d933-46ca-94c8-3b1226c9c17f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Utilities">
+      <UniqueIdentifier>{01efb046-fe52-4e64-94ea-a505e1d35355}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Entities">
+      <UniqueIdentifier>{1c5abf18-9f76-4831-b108-8f8da6fa39f7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Groups">
+      <UniqueIdentifier>{204cd3b8-1cb6-4aa8-b699-674416e8f9d3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Entities">
+      <UniqueIdentifier>{2b0a736d-76c3-4fa0-af1c-a64b9835a1c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Groups">
+      <UniqueIdentifier>{e964b342-6ca6-44cc-aad0-71713702f676}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Animation">
+      <UniqueIdentifier>{be32173d-f0c1-4fcb-bc10-e02e7ca8eada}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Animation">
+      <UniqueIdentifier>{2d358ef3-e132-4992-89b9-e55b2aeb2077}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="cleanup.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="assetPath.cpp">
+      <Filter>Source Files\Utilities</Filter>
     </ClCompile>
-    <ClCompile Include="randomNumber.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="cleanup.cpp">
+      <Filter>Source Files\Utilities</Filter>
     </ClCompile>
     <ClCompile Include="drawing.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="assetPath.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="timeController.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="frame.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Utilities</Filter>
     </ClCompile>
     <ClCompile Include="globals.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Utilities</Filter>
     </ClCompile>
-    <ClCompile Include="groupBuilder.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="randomNumber.cpp">
+      <Filter>Source Files\Utilities</Filter>
     </ClCompile>
-    <ClCompile Include="animation.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="animationSet.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="timeController.cpp">
+      <Filter>Source Files\Utilities</Filter>
     </ClCompile>
     <ClCompile Include="entity.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Entities</Filter>
     </ClCompile>
     <ClCompile Include="livingEntity.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="hero.cpp">
+      <Filter>Source Files\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="groupBuilder.cpp">
+      <Filter>Source Files\Groups</Filter>
+    </ClCompile>
+    <ClCompile Include="frame.cpp">
+      <Filter>Source Files\Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="animationSet.cpp">
+      <Filter>Source Files\Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="animation.cpp">
+      <Filter>Source Files\Animation</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="cleanup.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="randomNumber.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="drawing.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="assetPath.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="timeController.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="frame.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="globals.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="dataGroupType.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="group.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Groups</Filter>
     </ClInclude>
     <ClInclude Include="groupBox.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Groups</Filter>
     </ClInclude>
     <ClInclude Include="groupBuilder.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Groups</Filter>
     </ClInclude>
     <ClInclude Include="groupNumber.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Groups</Filter>
     </ClInclude>
     <ClInclude Include="groupPosition.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Groups</Filter>
     </ClInclude>
     <ClInclude Include="groupString.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Groups</Filter>
     </ClInclude>
-    <ClInclude Include="animation.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="assetPath.h">
+      <Filter>Header Files\Utilities</Filter>
     </ClInclude>
-    <ClInclude Include="animationSet.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="cleanup.h">
+      <Filter>Header Files\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="drawing.h">
+      <Filter>Header Files\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="globals.h">
+      <Filter>Header Files\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="randomNumber.h">
+      <Filter>Header Files\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="timeController.h">
+      <Filter>Header Files\Utilities</Filter>
     </ClInclude>
     <ClInclude Include="entity.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="hero.h">
+      <Filter>Header Files\Entities</Filter>
     </ClInclude>
     <ClInclude Include="livingEntity.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="animation.h">
+      <Filter>Header Files\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="animationSet.h">
+      <Filter>Header Files\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="frame.h">
+      <Filter>Header Files\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="dataGroupType.h">
+      <Filter>Header Files\Groups</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
