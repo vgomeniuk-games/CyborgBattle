@@ -5,13 +5,7 @@
 #include "globals.h"
 #include "timeController.h"
 
-struct HeroState {
-	static const int Idle;
-	static const int Move;
-	static const int Slash;
-	static const int Dash;
-	static const int Dead;
-};
+
 const int HeroState::Idle = 0;
 const int HeroState::Move = 1;
 const int HeroState::Slash = 2;
