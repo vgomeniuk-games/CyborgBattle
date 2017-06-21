@@ -25,7 +25,7 @@ public:
 	void updateAnimation();
 	void updateDamages();
 	inline int getState() { return state; }
-	inline void move(bool move) { moving = move; }
+	inline void shouldMove(bool statement) { moving = statement; }
 
 protected:
 	/*AnimationState*/int state;
