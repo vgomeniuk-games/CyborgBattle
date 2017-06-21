@@ -1,9 +1,12 @@
 #include "wall.h"
 #include "timeController.h"
 
-Wall::Wall(AnimationSet* animations) {
+Wall::Wall(AnimationSet* animations, int x, int y) {
 	this->animations = animations;
+	this->x = x;
+	this->y = y;
 	this->solid = true;
+	this->active = true;  // TODO
 	this->collisionBoxHeight = 32;
 	this->collisionBoxWidth = 32;
 	this->collisionBoxYOffset = -16;

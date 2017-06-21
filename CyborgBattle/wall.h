@@ -6,7 +6,7 @@
 
 class Wall : public Entity {
 public:
-	Wall(AnimationSet* animations);
+	Wall(AnimationSet* animations, int x, int y);
 	void update();
 	void changeAnimation(/*Direction*/int newState, bool reset);
 	inline void updateCollisions() { /* No nned to update collisions on walls */ }
