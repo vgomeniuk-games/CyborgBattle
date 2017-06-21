@@ -22,9 +22,11 @@ std::vector<std::vector<std::string>> HeroAnimations = {
 };
 
 
-Hero::Hero(AnimationSet* animSet) {
+Hero::Hero(AnimationSet* animSet, int x, int y) {
 	this->animations = animSet;
 	this->type = "hero";
+	this->x = x;
+	this->y = y;
 
 	// Setup default Hero values
 	this->moveSpeed = 0;
@@ -133,7 +135,7 @@ void Hero::updateAnimation() {
 	}
 }
 
-void Hero::updateDamages() {
+void Hero::updateDamage() {
 	if (active && hp > 0 && invincibleTimer <= 0) {
 		for (auto entity : Entity::entities) {
 			if (entity->isActive() && entity->getType() == "enemy") {

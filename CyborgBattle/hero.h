@@ -15,7 +15,7 @@ struct HeroState {
 
 class Hero : public LivingEntity {
 public:
-	Hero(AnimationSet* animSet);
+	Hero(AnimationSet* animSet, int x, int y);
 	void update();
 	void slash();
 	void dash();
@@ -23,7 +23,7 @@ public:
 	void revive();
 	void changeAnimation(/*HeroState*/int newState, bool reset);
 	void updateAnimation();
-	void updateDamages();
+	void updateDamage();
 	inline int getState() { return state; }
 	inline void shouldMove(bool statement) { moving = statement; }
 
