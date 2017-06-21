@@ -6,9 +6,8 @@
 
 class KeyboardInput {
 public:
-	KeyboardInput();
 	void update(SDL_Event* e);
-
+	void setHero(Hero* hero);
 private:
 	Hero* hero;
 

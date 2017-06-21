@@ -15,9 +15,7 @@ std::map<std::vector<SDL_Scancode>, int> angles{
 
 };
 
-
-KeyboardInput::KeyboardInput() {}
-
+void KeyboardInput::setHero(Hero* hero) { this->hero = hero; };
 
 void KeyboardInput::update(SDL_Event* e) {
 	// Press
@@ -47,7 +45,7 @@ void KeyboardInput::update(SDL_Event* e) {
 		if (keyboard[key]) { k_pressed = true; break; }
 	}
 	// Stop moving if hero is unable to
-	if (!(canMove && canIdle) || !k_pressed) { hero->shouldMove(false); }
+	if (!(canMove || canIdle) || !k_pressed) { hero->shouldMove(false); }
 
 	// Define move angle otherwise
 	else  if (keyboard[SDL_SCANCODE_UP] && !keyboard[SDL_SCANCODE_DOWN]) {
