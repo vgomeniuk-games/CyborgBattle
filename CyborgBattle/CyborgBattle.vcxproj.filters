@@ -81,6 +81,12 @@
     <ClCompile Include="animation.cpp">
       <Filter>Source Files\Animation</Filter>
     </ClCompile>
+    <ClCompile Include="keyboardInput.cpp">
+      <Filter>Source Files\Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="wall.cpp">
+      <Filter>Source Files\Entities</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="group.h">
@@ -139,6 +145,12 @@
     </ClInclude>
     <ClInclude Include="dataGroupType.h">
       <Filter>Header Files\Groups</Filter>
+    </ClInclude>
+    <ClInclude Include="keyboardInput.h">
+      <Filter>Header Files\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="wall.h">
+      <Filter>Header Files\Entities</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
