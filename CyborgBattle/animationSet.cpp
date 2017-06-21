@@ -29,7 +29,7 @@ SDL_Texture* AnimationSet::getSpriteSheet() {
 void AnimationSet::loadAnimationSet(std::string fileName, std::list<DataGroupType>& groupTypes, bool setColorKey, int transparentPixelIndex, bool createWhiteTexture) {
 
 	std::ifstream file;
-	std::string resPath = getResourcePath();
+	std::string resPath = getResourcePath("assets");
 	file.open(resPath + fileName);
 	if (file.good())
 	{
