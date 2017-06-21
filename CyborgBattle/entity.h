@@ -37,7 +37,10 @@ public:
 	static float getAngle(SDL_Rect& r1, SDL_Rect& r2);
 	static bool checkCollision(SDL_Rect& r1, SDL_Rect& r2);
 	static /*Direction*/int angleToDirection(float angle);
+	static void add(Entity* entity);
 	static void remove(bool all = false, bool del = false);  // Clean [inactive] enities [, and delete them]
+	static void updateAll();
+	static void drawAll();
 
 	// Overloaded
 	bool operator<(Entity& other);

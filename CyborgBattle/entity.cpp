@@ -212,6 +212,10 @@ bool Entity::checkCollision(SDL_Rect& r1, SDL_Rect& r2) {
 	return Direction::Up;
 }
 
+void Entity::add(Entity* entity) {
+	entities.push_back(entity);
+}
+
 void Entity::remove(bool all, bool del) {
 	for (auto entity = entities.begin(); entity != entities.end(); ) {
 		if (all || !(*entity)->active) {
@@ -222,6 +226,18 @@ void Entity::remove(bool all, bool del) {
 			continue;
 		}
 		++entity;
+	}
+}
+
+void Entity::updateAll() {
+	for (auto entity : entities) {
+		entity->update();
+	}
+}
+
+void Entity::drawAll() {
+	for (auto entity : entities) {
+		entity->draw();
 	}
 }
 
