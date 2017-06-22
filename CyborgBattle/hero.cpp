@@ -35,7 +35,7 @@ Hero::Hero(AnimationSet* animSet, int x, int y) {
 	this->damage = 0;
 	this->collisionBoxWidth = 20;
 	this->collisionBoxHeight = 24;
-	this->collisionBoxYOffset = -20;
+	this->collisionBoxYOffset = 20;
 	this->direction = Direction::Down;
 	revive();
 	updateCollisionBox();

@@ -193,7 +193,8 @@ float Entity::getAngle(SDL_Rect& r1, SDL_Rect& r2) {
 }
 
 bool Entity::checkCollision(SDL_Rect& r1, SDL_Rect& r2) {
-	if (SDL_IntersectRect(&r1, &r2, nullptr)) {
+	SDL_Rect intersection;
+	if (SDL_IntersectRect(&r1, &r2, &intersection)) {
 		return true;
 	}
 	return false;
