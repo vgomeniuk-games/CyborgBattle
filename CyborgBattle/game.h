@@ -6,6 +6,7 @@
 #include <SDL.h>
 #include "entity.h"
 #include "hero.h"
+#include "glob.h"
 #include "animationSet.h"
 #include "keyboardInput.h"
 
@@ -22,6 +23,10 @@ private:
 	std::unique_ptr<Hero*> hero;
 	std::unique_ptr<AnimationSet*> heroAnimations;
 	KeyboardInput heroInput;
+
+	std::list<Entity*> enemies;
+	std::unique_ptr<AnimationSet*> globAnimations;
+
 
 	std::list<Entity*> walls;  // Deleting handled by Entity::remove
 	std::unique_ptr<AnimationSet*> wallAnimations;
