@@ -58,7 +58,7 @@ Game::Game() {
 
 Game::~Game() {
 	cleanup(background);
-	Entity::remove(true, true);  // Nore: will also remove all the walls' *s
+	Entity::remove(true, true);  // Note: will also remove all the walls' *s
 }
 
 void Game::update() {
