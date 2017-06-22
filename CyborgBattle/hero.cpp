@@ -110,6 +110,11 @@ void Hero::updateAnimation() {
 	if (state == HeroState::Move && !moving) {
 		changeAnimation(HeroState::Idle, true);
 	}
+	// Set correct state if moving
+	if (!state == HeroState::Move && moving) {
+		changeAnimation(HeroState::Move, true);
+	}
+
 	// Change frame if current one's duration exeed
 	frameTimer += TimeController::controller.getDeltaTime();
 	if (frameTimer >= currentFrame->getDuration()) {
