@@ -41,6 +41,7 @@ public:
 	static void remove(bool all = false, bool del = false);  // Clean [inactive] enities [, and delete them]
 	static void updateAll();
 	static void drawAll();
+	static void sort();
 
 	// Overloaded
 	bool operator<(Entity& other);

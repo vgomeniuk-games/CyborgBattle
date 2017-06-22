@@ -106,6 +106,9 @@ void Game::draw() {
 	SDL_SetRenderDrawColor(Globals::renderer, 145, 133, 129, SDL_ALPHA_OPAQUE);
 	SDL_RenderClear(Globals::renderer);
 
+	// Sort entities based on Y to properly display depth
+	Entity::sort();
+
 	// Render background & all the entities
 	renderTexture(background, Globals::renderer, 0, 0);
 	Entity::drawAll();

@@ -242,6 +242,12 @@ void Entity::drawAll() {
 	}
 }
 
+void Entity::sort() {
+	// Sort on Y coordinate and reverse so closer objects are drawn on top
+	Entity::entities.sort();
+	Entity::entities.reverse();
+}
+
 bool Entity::operator<(Entity& other) {
 	// Compare depth of entity on screen
 	return this->y < other.y;
