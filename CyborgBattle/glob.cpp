@@ -24,7 +24,7 @@ std::vector<std::vector<std::string>> GlobAnimations = {
 	/* Die */		{ "die",			"die",				"die",				"die" }
 };
 
-Glob::Glob(AnimationSet* animations, int x, int y) {
+Glob::Glob(AnimationSet* animations, int x, int y, int invincible) {
 	this->animations = animations;
 	this->type = "enemy";
 	this->x = x;
@@ -37,6 +37,8 @@ Glob::Glob(AnimationSet* animations, int x, int y) {
 	this->collisionBox.h = this->collisionBoxHeight = 20;
 	this->collisionBoxYOffset = 14;
 	this->direction = Direction::Down;
+	this->invincibleTimer = invincible;
+	this->active = true;
 
 	changeAnimation(GlobState::Idle, true);
 	updateCollisionBox();
@@ -161,6 +163,11 @@ void Glob::updateAnimation() {
 				break;
 			case GlobState::Attack:
 				changeAnimation(GlobState::Move, true);
+				break;
+			case GlobState::Dead:
+				frameTimer = 0;
+				if (hp > 0) { changeAnimation(GlobState::Move, true); }
+				else { active = false; }
 				break;
 			default:
 				currentFrame = currentAnimation->getFrame(0);

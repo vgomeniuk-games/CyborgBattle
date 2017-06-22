@@ -19,7 +19,7 @@ struct GlobAI {
 
 class Glob : public LivingEntity {
 public:
-	Glob(AnimationSet* animations, int x, int y);
+	Glob(AnimationSet* animations, int x, int y, int invincible = 0);
 	void update();
 	void think();
 	void telegraph();
