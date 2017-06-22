@@ -57,7 +57,7 @@ protected:
 	float angle;  // Angle to move entity (360 degree angle)
 	float moveSpeed;
 	float moveSpeedMax;
-	float moveLerp;
+	float moveLerp = 4;
 	float slideAngle;  // Direction when pushed
 	float slideAmount;
 	std::string type = "Entity";
