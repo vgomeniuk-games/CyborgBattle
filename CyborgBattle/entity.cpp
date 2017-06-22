@@ -30,7 +30,7 @@ void Entity::move(float angle) {
 	/*Direction*/int newDirection = angleToDirection(angle);
 	if (this->direction != newDirection) {
 		direction = newDirection;
-		changeAnimation(direction, false);
+		changeAnimation(direction, true);
 	}
 }
 
