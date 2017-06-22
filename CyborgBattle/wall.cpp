@@ -9,8 +9,9 @@ Wall::Wall(AnimationSet* animations, int x, int y) {
 	this->active = true;  // TODO
 	this->collisionBoxHeight = 32;
 	this->collisionBoxWidth = 32;
-	this->collisionBoxYOffset = -16;
+	this->collisionBoxYOffset = 16;
 	updateCollisionBox();
+	changeAnimation(0, false);
 }
 
 void Wall::update() {
