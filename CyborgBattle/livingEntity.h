@@ -13,6 +13,7 @@ public:
 
 	inline int getDamage() { return damage; };
 	inline SDL_Rect getHitBox() { return hitBox; };
+	inline int getHP() { return hp; }
 
 	void draw() override;
 
