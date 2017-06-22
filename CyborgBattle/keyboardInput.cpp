@@ -44,17 +44,21 @@ void KeyboardInput::update(SDL_Event* e) {
 	for (SDL_Scancode key : {SDL_SCANCODE_UP, SDL_SCANCODE_DOWN, SDL_SCANCODE_LEFT, SDL_SCANCODE_RIGHT}) {
 		if (keyboard[key]) { k_pressed = true; break; }
 	}
+	float angle;
 	// Stop moving if hero is unable to
 	if (!(canMove || canIdle) || !k_pressed) { hero->shouldMove(false); }
 
 	// Define move angle otherwise
 	else  if (keyboard[SDL_SCANCODE_UP] && !keyboard[SDL_SCANCODE_DOWN]) {
-		hero->move(280.0f + (keyboard[SDL_SCANCODE_LEFT] * -45.0f) + (keyboard[SDL_SCANCODE_RIGHT] * 45.0f));
+		angle = 280.0f + (keyboard[SDL_SCANCODE_LEFT] * -45.0f) + (keyboard[SDL_SCANCODE_RIGHT] * 45.0f);
+		hero->move(angle);
 	}
 	else if (keyboard[SDL_SCANCODE_DOWN] && !keyboard[SDL_SCANCODE_UP]) {
-		hero->move(90.0f + (keyboard[SDL_SCANCODE_LEFT] * 45.0f) + (keyboard[SDL_SCANCODE_RIGHT] * -45.0f));
+		angle = 90.0f + (keyboard[SDL_SCANCODE_LEFT] * 45.0f) + (keyboard[SDL_SCANCODE_RIGHT] * -45.0f);
+		hero->move(angle);
 	}
 	else if (!(keyboard[SDL_SCANCODE_LEFT] && keyboard[SDL_SCANCODE_RIGHT])) {
-		hero->move(keyboard[SDL_SCANCODE_LEFT] ? 180.0f : 0.0f);
+		angle = keyboard[SDL_SCANCODE_LEFT] ? 180.0f : 0.0f;
+		hero->move(angle);
 	}
 }
