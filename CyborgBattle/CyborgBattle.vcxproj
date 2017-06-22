@@ -213,6 +213,7 @@ xcopy /Y /I "$(ProjectDir)assets" "$(OutDir)assets"</Command>
     <ClCompile Include="entity.cpp" />
     <ClCompile Include="frame.cpp" />
     <ClCompile Include="game.cpp" />
+    <ClCompile Include="glob.cpp" />
     <ClCompile Include="globals.cpp" />
     <ClCompile Include="groupBuilder.cpp" />
     <ClCompile Include="hero.cpp" />
@@ -233,6 +234,7 @@ xcopy /Y /I "$(ProjectDir)assets" "$(OutDir)assets"</Command>
     <ClInclude Include="entity.h" />
     <ClInclude Include="frame.h" />
     <ClInclude Include="game.h" />
+    <ClInclude Include="glob.h" />
     <ClInclude Include="globals.h" />
     <ClInclude Include="group.h" />
     <ClInclude Include="groupBox.h" />
