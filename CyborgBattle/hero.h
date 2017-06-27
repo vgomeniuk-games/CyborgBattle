@@ -28,7 +28,7 @@ public:
 	inline void shouldMove(bool statement) { moving = statement; }
 
 protected:
-	/*AnimationState*/int state;
+	/*HeroState*/int state;
 
 };
 
