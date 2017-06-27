@@ -96,7 +96,7 @@ void Hero::revive() {
 	slideAmount = 0;
 }
 
-void Hero::changeAnimation(/*AnimationStates*/int newState, bool reset) {
+void Hero::changeAnimation(/*HeroAnimations*/int newState, bool reset) {
 	state = newState;
 	currentAnimation = animations->getAnimation(HeroAnimations[newState][direction]);
 	currentFrame = currentAnimation->getFrame( reset ? 0 : currentFrame->getFrameNumber() );
@@ -144,7 +144,7 @@ void Hero::updateDamage() {
 	if (active && hp > 0 && invincibleTimer <= 0) {
 		for (auto entity : Entity::entities) {
 			if (entity->isActive() && entity->getType() == "enemy") {
-				LivingEntity* enemy = (LivingEntity*)entity;
+				auto enemy = dynamic_cast<LivingEntity*>(entity);
 				if (enemy->getDamage() > 0 && Entity::checkCollision(collisionBox, enemy->getHitBox())) {
 					hp -= enemy->getDamage();
 				}
