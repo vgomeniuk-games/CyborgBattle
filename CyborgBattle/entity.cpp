@@ -28,10 +28,7 @@ void Entity::move(float angle) {
 	this->angle = angle;
 
 	/*Direction*/int newDirection = angleToDirection(angle);
-	if (this->direction != newDirection) {
-		direction = newDirection;
-		changeAnimation(direction, true);
-	}
+	if (this->direction != newDirection) { direction = newDirection; }
 }
 
 void Entity::updateMovememnt() {
@@ -64,6 +61,9 @@ void Entity::updateMovememnt() {
 			this->x += xMove;
 			this->y += yMove;
 			slideAmount -= slideDistance;
+		}
+		else {
+			slideAmount = 0;
 		}
 	}
 
