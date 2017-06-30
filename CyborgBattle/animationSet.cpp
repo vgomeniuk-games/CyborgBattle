@@ -26,6 +26,10 @@ SDL_Texture* AnimationSet::getSpriteSheet() {
 	return spriteSheet;
 }
 
+SDL_Texture* AnimationSet::getWhiteSpriteSheet() {
+	return whiteSpriteSheet;
+}
+
 void AnimationSet::loadAnimationSet(std::string fileName, std::list<DataGroupType>& groupTypes, bool setColorKey, int transparentPixelIndex, bool createWhiteTexture) {
 
 	std::ifstream file;

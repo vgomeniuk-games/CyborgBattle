@@ -21,6 +21,8 @@ public:
 	*/
 	void loadAnimationSet(std::string fileName, std::list<DataGroupType>& groupTypes, bool setColorKey = false, int transparentPixelIndex = 0, bool createWhiteTexture = false);
 	SDL_Texture* getSpriteSheet();
+	SDL_Texture* getWhiteSpriteSheet();
+
 private:
 	std::string imageName;
 	SDL_Texture* spriteSheet = nullptr;
