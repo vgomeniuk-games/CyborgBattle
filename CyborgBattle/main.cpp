@@ -8,6 +8,7 @@
 #include "assetPath.h"
 #include "drawing.h"
 #include "globals.h"
+#include "game.h"
 
 
 
@@ -70,19 +71,13 @@ int main(int argc, char **argv)
 		return 1;
 	}
 
-	// Load texture to draw
-	std::string resPath = getResourcePath("assets");
-	SDL_Texture* texture = loadTexture(resPath + "map.png", Globals::renderer);
+	// Instantiate game object and update it constantly
+	Game game;
+	game.update();
 
-	// Run game for 5000 ticks (5000ms)
-	while (SDL_GetTicks() < 5000) {
-		SDL_RenderClear(Globals::renderer);
-		renderTexture(texture, Globals::renderer, 0, 0);
-		SDL_RenderPresent(Globals::renderer);
-	}
+	// Once game is over clean everything up and quit
 	cleanup(Globals::renderer);
 	cleanup(window);
-	cleanup(texture);
 	SDL_Quit();
 	return 0;
 }
