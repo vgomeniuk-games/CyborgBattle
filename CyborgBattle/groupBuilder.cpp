@@ -99,8 +99,8 @@ void GroupBuilder::loadGroups(std::ifstream& file, std::list<Group*>& groups) {
 			}
 			// Clean up string so we can add data to the group
 			// TODO
-			// line = Globals::clipOffDataHeader(line);//get rid of the 'groupName: '
-			// group->addToGroup(line);
+			line = Globals::clipOffDataHeader(line); //get rid of the 'groupName: '
+			group->addToGroup(line);
 		}
 	}
 
