@@ -56,6 +56,6 @@ void Frame::loadFrame(std::ifstream& file, std::list<DataGroupType>& groupTypes)
 	GroupBuilder::loadGroups(file, frameData);
 }
 
-std::list<Group*> Frame::getFrameData() {
+std::list<Group*>& Frame::getFrameData() {
 	return frameData;
 }
