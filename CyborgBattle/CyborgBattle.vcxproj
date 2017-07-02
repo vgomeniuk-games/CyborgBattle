@@ -222,6 +222,7 @@ xcopy /Y /I /E "$(ProjectDir)assets" "$(OutDir)assets"</Command>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="randomNumber.cpp" />
     <ClCompile Include="assetPath.cpp" />
+    <ClCompile Include="soundManager.cpp" />
     <ClCompile Include="timeController.cpp" />
     <ClCompile Include="wall.cpp" />
   </ItemGroup>
@@ -247,6 +248,7 @@ xcopy /Y /I /E "$(ProjectDir)assets" "$(OutDir)assets"</Command>
     <ClInclude Include="livingEntity.h" />
     <ClInclude Include="randomNumber.h" />
     <ClInclude Include="assetPath.h" />
+    <ClInclude Include="soundManager.h" />
     <ClInclude Include="timeController.h" />
     <ClInclude Include="wall.h" />
   </ItemGroup>
