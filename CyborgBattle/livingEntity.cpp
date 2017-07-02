@@ -5,9 +5,12 @@
 #include "timeController.h"
 #include "globals.h"
 
+// TODO
+#include <iostream>
+
 void LivingEntity::updateHitBox() {
-	auto frameData = currentFrame->getFrameData();
-	GroupBox* hitBoxes = static_cast<GroupBox*>(GroupBuilder::findGroupByName("hitBox", frameData));
+	damage = 0;
+	GroupBox* hitBoxes = static_cast<GroupBox*>(GroupBuilder::findGroupByName("hitBox", currentFrame->getFrameData()));
 	if (hitBoxes != nullptr && hitBoxes->numberOfDataInGroup() > 0) {
 		// Update hitbox
 		SDL_Rect hb = hitBoxes->getFirst();
@@ -17,7 +20,7 @@ void LivingEntity::updateHitBox() {
 		hitBox.h = hb.h;
 
 		// Update damage
-		GroupNumber* damages = static_cast<GroupNumber*>(GroupBuilder::findGroupByName("damage", frameData));
+		GroupNumber* damages = static_cast<GroupNumber*>(GroupBuilder::findGroupByName("damage", currentFrame->getFrameData()));
 		if (damages != nullptr && damages->numberOfDataInGroup() > 0) {
 			damage = damages->getFirst();
 		}
@@ -31,11 +34,22 @@ void LivingEntity::updateInvincibleTimer() {
 }
 
 void LivingEntity::draw() {
-	Entity::draw();
+	if (currentFrame != nullptr && this->active) {
+		if (invincibleTimer > 0 && animations->getWhiteSpriteSheet() != nullptr) {
+			this->currentFrame->draw(this->animations->getWhiteSpriteSheet(), this->x, this->y);
+		}
+		else {
+			this->currentFrame->draw(this->animations->getSpriteSheet(), this->x, this->y);
+		}
+		
+	}
 	if (solid && Globals::DEBUG) {
 		// Also draw few more things while debugging
 		SDL_SetRenderDrawColor(Globals::renderer, 0, 0, 255, SDL_ALPHA_OPAQUE);
 		SDL_RenderDrawRect(Globals::renderer, &lastCollisionBox);
+
+		SDL_SetRenderDrawColor(Globals::renderer, 255, 0, 0, SDL_ALPHA_OPAQUE);
+		SDL_RenderDrawRect(Globals::renderer, &collisionBox);
 
 		SDL_SetRenderDrawColor(Globals::renderer, 255, 0, 255, SDL_ALPHA_OPAQUE);
 		SDL_RenderDrawRect(Globals::renderer, &hitBox);
