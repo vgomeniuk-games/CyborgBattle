@@ -10,8 +10,11 @@
 #include "randomNumber.h"
 
 Game::Game() {
+	// Load textures
 	std::string resPath = getResourcePath("assets");
 	background = loadTexture(resPath + "map.png", Globals::renderer);
+	splash = loadTexture(resPath + "cyborgtitle.png", Globals::renderer);
+	overlay = loadTexture(resPath + "overlay.png", Globals::renderer);
 
 	// Hold list of data group types
 	std::list<DataGroupType> d_types = {
@@ -76,23 +79,37 @@ Game::Game() {
 }
 
 Game::~Game() {
-	cleanup(background);
+	for (auto texture : { background, splash, overlay, score }) { cleanup(texture); }
 	Entity::remove(true, true);  // Note: will also remove all the walls' / enemies' *s
+}
+
+void Game::restart() {
+	// Clean score
+	cleanup(score);
+	score = nullptr;
+
+	// Reset helper variables
+	overlayTimer = 2.0f;
+	isSplash = true;
+	enemiesQty = 0;
+	enemiesMaxQty = 2;
+	enemySpawnTimer = 1.0f;
+
+	// Remove all the enemies and clean killed score
+	Glob::reset();
+	for (auto enemy : enemies) { enemy->deactivate(); }
 }
 
 void Game::update() {
 	// TODO Spawn enemies
-	int enemiesQty = 0;
-	int enemiesMaxQty = 2;
-	float enemySpawnTimer = 1.0f;
-
-	bool quit = false;
+	restart();
 
 	SDL_Event e;
 	// Setup TimeController bewfore the game starts
 	TimeController::controller.reset();
 
 	// Main loop
+	bool quit = false;
 	while (!quit) {
 		TimeController::controller.updateTime();
 		Entity::remove();  // Remove inactive events
@@ -108,7 +125,11 @@ void Game::update() {
 					quit = true;
 					break;
 				case SDL_SCANCODE_SPACE:
-					(*hero)->revive();
+					if (isSplash) { isSplash = false; }
+					if (overlayTimer <= 0 && (*hero)->getHP() < 1) {
+						restart();
+						(*hero)->revive();
+					}
 					break;
 
 				default:
@@ -117,18 +138,23 @@ void Game::update() {
 			}
 			heroInput.update(&e);
 		}
+		// Tick overlayTimer
+		if ((*hero)->getHP() < 1 && overlayTimer > 0) {
+			overlayTimer -= TimeController::controller.getDeltaTime();
+		}
+
 		// Update all the entities in the game
 		Entity::updateAll();
 
 		// Spawn enemies
-		if ((*hero)->getHP() > 0) {
+		if ((*hero)->getHP() > 0 && !isSplash) {
 			if (enemiesQty == enemiesMaxQty) {
 				enemiesMaxQty = enemiesMaxQty * 2;
 				enemiesQty = 0;
 				enemySpawnTimer = 4;
 			}
 			enemySpawnTimer -= TimeController::controller.getDeltaTime();
-			if (enemySpawnTimer <= 0 && enemiesQty < enemiesMaxQty && enemies.size() < 1) {
+			if (enemySpawnTimer <= 0 && enemiesQty < enemiesMaxQty && enemies.size() < 10) {
 				Glob* enemy = new Glob(
 					/*animations=*/ *globAnimations,
 					// Random position within accessible area
@@ -151,13 +177,29 @@ void Game::draw() {
 	SDL_SetRenderDrawColor(Globals::renderer, 145, 133, 129, SDL_ALPHA_OPAQUE);
 	SDL_RenderClear(Globals::renderer);
 
-	// Sort entities based on Y to properly display depth
-	Entity::sort();
+	if (isSplash) {
+		renderTexture(splash, Globals::renderer, 0, 0);
+	}
+	else {
+		// Render background & all the entities
+		renderTexture(background, Globals::renderer, 0, 0);
+		Entity::sort();  // Sort entities based on Y to properly display depth
+		Entity::drawAll();
 
-	// Render background & all the entities
-	renderTexture(background, Globals::renderer, 0, 0);
-	Entity::drawAll();
-
+		// Show overlay if dead
+		if (overlayTimer <= 0 && (*hero)->getHP() < 1) {
+			renderTexture(overlay, Globals::renderer, 0, 0);
+			// Generate score text if no texture presented yet
+			if (score == nullptr) {
+				SDL_Color color = { 255, 255, 255, 255 };
+				std::stringstream ss;
+				ss << "Enemies dispatched: " << Glob::score();
+				std::string path = getResourcePath("assets", "fonts");
+				score = renderText(ss.str(), path + "vermin_vibes_1989.ttf", color, 30, Globals::renderer);
+			}
+			renderTexture(score, Globals::renderer, 20, 50);
+		}
+	}
 	// Display rendered image
 	SDL_RenderPresent(Globals::renderer);
 }
