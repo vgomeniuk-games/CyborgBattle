@@ -14,11 +14,16 @@ class Game {
 public:
 	Game();
 	~Game();
+	void restart();
 	void update();
 	void draw();
-
+	
 private:
-	SDL_Texture* background;
+	// Additional textures
+	SDL_Texture* background{ nullptr };
+	SDL_Texture* splash{ nullptr };
+	SDL_Texture* overlay{ nullptr };
+	SDL_Texture* score{ nullptr };
 
 	std::unique_ptr<Hero*> hero;
 	std::unique_ptr<AnimationSet*> heroAnimations;
@@ -31,6 +36,12 @@ private:
 	std::list<Entity*> walls;  // Deleting handled by Entity::remove
 	std::unique_ptr<AnimationSet*> wallAnimations;
 
+	// Helper variables
+	float overlayTimer;
+	bool isSplash;
+	int enemiesQty;
+	int enemiesMaxQty;
+	float enemySpawnTimer;
 };
 
 #endif // !GAME_H
