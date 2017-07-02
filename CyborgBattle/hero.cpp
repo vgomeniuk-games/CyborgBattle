@@ -147,14 +147,15 @@ void Hero::updateDamage() {
 				auto enemy = dynamic_cast<LivingEntity*>(entity);
 				if (enemy->getDamage() > 0 && Entity::checkCollision(collisionBox, enemy->getHitBox())) {
 					hp -= enemy->getDamage();
+
+					// If still alive
+					if (hp > 0) {
+						invincibleTimer = 0.3;
+						// TODO play sound
+					}
+					slideAngle = Entity::getAngle(entity, this);
+					slideAmount = 200;
 				}
-				// If still alive
-				if (hp > 0) {
-					invincibleTimer = 0.3;
-					// TODO play sound
-				}
-				slideAngle = Entity::getAngle(entity, this);
-				slideAmount = 200;
 			}
 		}
 	}
