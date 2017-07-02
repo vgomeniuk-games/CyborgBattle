@@ -8,6 +8,7 @@
 #include "cleanup.h"
 #include "timeController.h"
 #include "randomNumber.h"
+#include "soundManager.h"
 
 Game::Game() {
 	// Load textures
@@ -15,6 +16,12 @@ Game::Game() {
 	background = loadTexture(resPath + "map.png", Globals::renderer);
 	splash = loadTexture(resPath + "cyborgtitle.png", Globals::renderer);
 	overlay = loadTexture(resPath + "overlay.png", Globals::renderer);
+
+	// Load sounds
+	std::string soundsPath = getResourcePath("assets", "sounds");
+	for (auto& sound : { "heroHit", "enemyHit", "swing", "dash", "enemyDeath" }) {
+		SoundManager::load(sound, soundsPath + sound + ".wav");
+	}
 
 	// Hold list of data group types
 	std::list<DataGroupType> d_types = {
