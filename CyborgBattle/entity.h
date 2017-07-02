@@ -27,6 +27,7 @@ public:
 	virtual void updateCollisions();
 
 	inline bool isActive() { return active; };
+	inline void deactivate() { active = false; };
 	inline std::string getType() { return type; };
 
 	// Helper functions (static)
