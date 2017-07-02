@@ -102,7 +102,7 @@ copy /Y "D:\Applications\SDL2-2.0.5\lib\$(PlatformTarget)\libfreetype-6.dll" "$(
 copy /Y "D:\Applications\SDL2-2.0.5\lib\$(PlatformTarget)\libpng16-16.dll" "$(OutDir)";
 copy /Y "D:\Applications\SDL2-2.0.5\lib\$(PlatformTarget)\smpeg2.dll" "$(OutDir)";
 copy /Y "D:\Applications\SDL2-2.0.5\lib\$(PlatformTarget)\zlib1.dll" "$(OutDir)";
-xcopy /Y /I "$(ProjectDir)assets" "$(OutDir)assets"</Command>
+xcopy /Y /I /E "$(ProjectDir)assets" "$(OutDir)assets"</Command>
     </CustomBuildStep>
     <CustomBuildStep>
       <Message>Copy SDL2 Libraries and Assets files to Build Output Folder</Message>
@@ -131,7 +131,7 @@ copy /Y "D:\Applications\SDL2-2.0.5\lib\$(PlatformTarget)\libfreetype-6.dll" "$(
 copy /Y "D:\Applications\SDL2-2.0.5\lib\$(PlatformTarget)\libpng16-16.dll" "$(OutDir)";
 copy /Y "D:\Applications\SDL2-2.0.5\lib\$(PlatformTarget)\smpeg2.dll" "$(OutDir)";
 copy /Y "D:\Applications\SDL2-2.0.5\lib\$(PlatformTarget)\zlib1.dll" "$(OutDir)";
-xcopy /Y /I "$(ProjectDir)assets" "$(OutDir)assets"</Command>
+xcopy /Y /I /E "$(ProjectDir)assets" "$(OutDir)assets"</Command>
     </CustomBuildStep>
     <CustomBuildStep>
       <Message>Copy SDL2 Libraries and Assets files to Build Output Folder</Message>
@@ -164,7 +164,7 @@ copy /Y "D:\Applications\SDL2-2.0.5\lib\$(PlatformTarget)\libfreetype-6.dll" "$(
 copy /Y "D:\Applications\SDL2-2.0.5\lib\$(PlatformTarget)\libpng16-16.dll" "$(OutDir)";
 copy /Y "D:\Applications\SDL2-2.0.5\lib\$(PlatformTarget)\smpeg2.dll" "$(OutDir)";
 copy /Y "D:\Applications\SDL2-2.0.5\lib\$(PlatformTarget)\zlib1.dll" "$(OutDir)";
-xcopy /Y /I "$(ProjectDir)assets" "$(OutDir)assets"</Command>
+xcopy /Y /I /E "$(ProjectDir)assets" "$(OutDir)assets"</Command>
     </CustomBuildStep>
     <CustomBuildStep>
       <Message>Copy SDL2 Libraries and Assets files to Build Output Folder</Message>
@@ -197,7 +197,7 @@ copy /Y "D:\Applications\SDL2-2.0.5\lib\$(PlatformTarget)\libfreetype-6.dll" "$(
 copy /Y "D:\Applications\SDL2-2.0.5\lib\$(PlatformTarget)\libpng16-16.dll" "$(OutDir)";
 copy /Y "D:\Applications\SDL2-2.0.5\lib\$(PlatformTarget)\smpeg2.dll" "$(OutDir)";
 copy /Y "D:\Applications\SDL2-2.0.5\lib\$(PlatformTarget)\zlib1.dll" "$(OutDir)";
-xcopy /Y /I "$(ProjectDir)assets" "$(OutDir)assets"</Command>
+xcopy /Y /I /E "$(ProjectDir)assets" "$(OutDir)assets"</Command>
     </CustomBuildStep>
     <CustomBuildStep>
       <Message>Copy SDL2 Libraries and Assets files to Build Output Folder</Message>
