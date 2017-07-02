@@ -14,7 +14,7 @@ class Game {
 public:
 	Game();
 	~Game();
-	void restart();
+	void restart(bool splash);
 	void update();
 	void draw();
 	

@@ -83,14 +83,14 @@ Game::~Game() {
 	Entity::remove(true, true);  // Note: will also remove all the walls' / enemies' *s
 }
 
-void Game::restart() {
+void Game::restart(bool splash) {
 	// Clean score
 	cleanup(score);
 	score = nullptr;
 
 	// Reset helper variables
 	overlayTimer = 2.0f;
-	isSplash = true;
+	isSplash = splash;
 	enemiesQty = 0;
 	enemiesMaxQty = 2;
 	enemySpawnTimer = 1.0f;
@@ -102,7 +102,7 @@ void Game::restart() {
 
 void Game::update() {
 	// TODO Spawn enemies
-	restart();
+	restart(true);
 
 	SDL_Event e;
 	// Setup TimeController bewfore the game starts
@@ -127,11 +127,10 @@ void Game::update() {
 				case SDL_SCANCODE_SPACE:
 					if (isSplash) { isSplash = false; }
 					if (overlayTimer <= 0 && (*hero)->getHP() < 1) {
-						restart();
+						restart(false);
 						(*hero)->revive();
 					}
 					break;
-
 				default:
 					break;
 				}
