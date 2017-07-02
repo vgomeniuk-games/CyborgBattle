@@ -202,3 +202,10 @@ void Glob::updateDamage() {
 	}
 }
 
+void Glob::reset() {
+	Glob::killed = 0;
+}
+
+float Glob::score() {
+	return Glob::killed;
+}

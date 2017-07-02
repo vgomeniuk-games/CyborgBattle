@@ -30,6 +30,8 @@ public:
 	void updateAnimation();
 	void updateDamage();
 
+	static void reset();
+	static float score();
 private:
 	static int killed;  // Keep track of N of killed Globs
 	int state = GlobState::Idle;
