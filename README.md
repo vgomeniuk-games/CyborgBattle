@@ -21,6 +21,3 @@ SDL2.dll; SDL2_image.dll; SDL2_mixer.dll; SDL2_ttf.dll; libfreetype-6.dll;' libp
 Copyright information:
 All resources (sounds, music, font, spritesheets etc.) used in game were found online and are free for non-commercial use.
 In case of any commercial usage, please, contact original authors for permission.
-
-
-<iframe width="100%" height="450" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/141504921&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"></iframe>
