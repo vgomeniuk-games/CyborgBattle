@@ -4,6 +4,7 @@
 #include "hero.h"
 #include "globals.h"
 #include "timeController.h"
+#include "soundManager.h"
 
 
 const int HeroState::Idle = 0;
@@ -63,7 +64,7 @@ void Hero::slash() {
 		moving = false;
 		frameTimer = 0;
 		changeAnimation(HeroState::Slash, true);
-		// TODO add sound
+		SoundManager::play("swing");
 	}
 }
 
@@ -78,7 +79,7 @@ void Hero::dash() {
 		invincibleTimer = 0.1;
 
 		changeAnimation(HeroState::Dash, true);
-		// TODO add sound
+		SoundManager::play("dash");
 	}
 }
 
@@ -151,7 +152,7 @@ void Hero::updateDamage() {
 					// If still alive
 					if (hp > 0) {
 						invincibleTimer = 0.3;
-						// TODO play sound
+						SoundManager::play("heroHit");
 					}
 					slideAngle = Entity::getAngle(entity, this);
 					slideAmount = 200;

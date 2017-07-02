@@ -3,6 +3,7 @@
 #include <string>
 #include "glob.h"
 #include "timeController.h"
+#include "soundManager.h"
 
 const int GlobState::Idle = 0;
 const int GlobState::Move = 1;
@@ -121,7 +122,7 @@ void Glob::die() {
 	moving = false;
 	state = GlobState::Dead;
 	changeAnimation(state, true);
-	// TODO add some sound
+	SoundManager::play("enemyDeath");
 	++Glob::killed;
 }
 
@@ -190,7 +191,7 @@ void Glob::updateDamage() {
 				if (enemy->getDamage() > 0 && Entity::checkCollision(collisionBox, enemy->getHitBox())) {
 					hp -= enemy->getDamage();
 					if (hp > 0) {
-						// TODO play sound
+						SoundManager::play("enemyHit");
 						invincibleTimer = 0.1;
 					}
 					// Slide backwards from the enemy
