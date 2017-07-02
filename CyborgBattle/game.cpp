@@ -17,8 +17,13 @@ Game::Game() {
 	splash = loadTexture(resPath + "cyborgtitle.png", Globals::renderer);
 	overlay = loadTexture(resPath + "overlay.png", Globals::renderer);
 
-	// Load sounds
+	// Load music & sounds
 	std::string soundsPath = getResourcePath("assets", "sounds");
+	// Song by Ryan Beveridge: https://soundcloud.com/ryan-beveridge/fatal-theory-1
+	soundtrack = Mix_LoadMUS((soundsPath + "FatalTheory.wav").c_str());
+	if (soundtrack != nullptr) {
+		Mix_PlayMusic(soundtrack, -1);
+	}
 	for (auto& sound : { "heroHit", "enemyHit", "swing", "dash", "enemyDeath" }) {
 		SoundManager::load(sound, soundsPath + sound + ".wav");
 	}
@@ -86,6 +91,11 @@ Game::Game() {
 }
 
 Game::~Game() {
+	// Stop playing music and clean
+	Mix_PauseMusic();
+	Mix_FreeMusic(soundtrack);
+
+	// Clean all the textures loaded
 	for (auto texture : { background, splash, overlay, score }) { cleanup(texture); }
 	Entity::remove(true, true);  // Note: will also remove all the walls' / enemies' *s
 }

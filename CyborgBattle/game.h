@@ -4,6 +4,7 @@
 #include <memory>
 #include <list>
 #include <SDL.h>
+#include <SDL_mixer.h>
 #include "entity.h"
 #include "hero.h"
 #include "glob.h"
@@ -19,11 +20,12 @@ public:
 	void draw();
 	
 private:
-	// Additional textures
+	// Additional resources
 	SDL_Texture* background{ nullptr };
 	SDL_Texture* splash{ nullptr };
 	SDL_Texture* overlay{ nullptr };
 	SDL_Texture* score{ nullptr };
+	Mix_Music* soundtrack;
 
 	std::unique_ptr<Hero*> hero;
 	std::unique_ptr<AnimationSet*> heroAnimations;

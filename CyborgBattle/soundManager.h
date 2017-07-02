@@ -3,7 +3,7 @@
 
 #include <string>
 #include <map>
-#include "SDL_mixer.h"
+#include <SDL_mixer.h>
 
 struct SoundListing {
 	std::string name;
