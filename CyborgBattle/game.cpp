@@ -10,6 +10,7 @@
 #include "randomNumber.h"
 #include "soundManager.h"
 
+
 Game::Game() {
 	// Load textures
 	std::string resPath = getResourcePath("assets");
@@ -96,15 +97,11 @@ Game::~Game() {
 	Mix_FreeMusic(soundtrack);
 
 	// Clean all the textures loaded
-	for (auto texture : { background, splash, overlay, score }) { cleanup(texture); }
+	for (auto texture : { background, splash, overlay, controlUI, hpUI, scoreUI }) { cleanup(texture); }
 	Entity::remove(true, true);  // Note: will also remove all the walls' / enemies' *s
 }
 
 void Game::restart(bool splash) {
-	// Clean score
-	cleanup(score);
-	score = nullptr;
-
 	// Reset helper variables
 	overlayTimer = 2.0f;
 	isSplash = splash;
@@ -182,10 +179,22 @@ void Game::update() {
 				Entity::add(enemy);
 			}
 		}
-
 		// Draw the game
 		draw();
 	}
+}
+
+void Game::drawUI(SDL_Texture* ui, std::initializer_list<std::string> text, int size, int posX, int posY, SDL_Color color) {
+	// Generate text
+	std::stringstream ss;
+	for (auto& str : text) { ss << str; }
+
+	// Draw ui and clean at the end
+	std::string path = getResourcePath("assets", "fonts");
+	if (ui == nullptr) {
+		ui = renderText(ss.str(), path + "vermin_vibes_1989.ttf", color, size, Globals::renderer);
+	}
+	renderTexture(ui, Globals::renderer, posX, posY);
 }
 
 void Game::draw() {
@@ -195,25 +204,19 @@ void Game::draw() {
 
 	if (isSplash) {
 		renderTexture(splash, Globals::renderer, 0, 0);
+		drawUI(controlUI, { "Control: ", "Z - dash / X - slash / Up, Left, Down, Right - move" }, 20, 50, Globals::HEIGHT - 20);
 	}
 	else {
 		// Render background & all the entities
 		renderTexture(background, Globals::renderer, 0, 0);
 		Entity::sort();  // Sort entities based on Y to properly display depth
 		Entity::drawAll();
+		drawUI(hpUI, { "HP: ", std::to_string((*hero)->getHP()), " / ", std::to_string((*hero)->getMaxHP())}, 30, 20, 20);
 
 		// Show overlay if dead
 		if (overlayTimer <= 0 && (*hero)->getHP() < 1) {
 			renderTexture(overlay, Globals::renderer, 0, 0);
-			// Generate score text if no texture presented yet
-			if (score == nullptr) {
-				SDL_Color color = { 255, 255, 255, 255 };
-				std::stringstream ss;
-				ss << "Enemies dispatched: " << Glob::score();
-				std::string path = getResourcePath("assets", "fonts");
-				score = renderText(ss.str(), path + "vermin_vibes_1989.ttf", color, 30, Globals::renderer);
-			}
-			renderTexture(score, Globals::renderer, 20, 50);
+			drawUI(scoreUI, { "Enemies dispatched: ", std::to_string(Glob::score()) }, 30, 20, 50);
 		}
 	}
 	// Display rendered image
