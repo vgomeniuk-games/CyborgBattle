@@ -207,6 +207,6 @@ void Glob::reset() {
 	Glob::killed = 0;
 }
 
-float Glob::score() {
+int Glob::score() {
 	return Glob::killed;
 }
