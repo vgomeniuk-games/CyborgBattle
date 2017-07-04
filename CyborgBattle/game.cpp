@@ -112,10 +112,10 @@ void Game::restart(bool splash) {
 	// Remove all the enemies and clean killed score
 	Glob::reset();
 	for (auto enemy : enemies) { enemy->deactivate(); }
+	enemies.clear();
 }
 
 void Game::update() {
-	// TODO Spawn enemies
 	restart(true);
 
 	SDL_Event e;
@@ -144,6 +144,10 @@ void Game::update() {
 						restart(false);
 						(*hero)->revive();
 					}
+
+					// TODO DEBUG
+					restart(false);
+					(*hero)->revive();
 					break;
 				default:
 					break;
@@ -175,6 +179,7 @@ void Game::update() {
 					/*y=*/ getRandomNumber(Globals::HEIGHT - 96) + 64,
 					/*invincible=*/ 0.1
 				);
+				++enemiesQty;
 				enemies.push_back(enemy);
 				Entity::add(enemy);
 			}
