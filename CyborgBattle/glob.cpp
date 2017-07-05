@@ -4,6 +4,7 @@
 #include "glob.h"
 #include "timeController.h"
 #include "soundManager.h"
+#include "randomNumber.h"
 
 const int GlobState::Idle = 0;
 const int GlobState::Move = 1;
@@ -25,14 +26,14 @@ std::vector<std::vector<std::string>> GlobAnimations = {
 	/* Die */		{ "die",			"die",				"die",				"die" }
 };
 
-Glob::Glob(AnimationSet* animations, int x, int y, int invincible) {
+Glob::Glob(AnimationSet* animations, float x, float y, float invincible) {
 	this->animations = animations;
 	this->type = "enemy";
 	this->x = x;
 	this->y = y;
 	this->moveSpeed = 0;
 	this->moveSpeedMax = 20;
-	this->hp = 10 + rand() % 20;
+	this->hp = 10 + getRandomNumber(20);
 	this->damage = 0;
 	this->collisionBox.w = this->collisionBoxWidth = 18;
 	this->collisionBox.h = this->collisionBoxHeight = 20;
@@ -66,7 +67,7 @@ void Glob::think() {
 	if (state == GlobState::Idle || state == GlobState::Move) {
 		thinkTimer -= TimeController::controller.getDeltaTime();
 		if (thinkTimer <= 0) {
-			int action = rand() % 10;
+			int action = getRandomNumber(10);
 			if (action < 3) {
 				moving = false;
 				aiState = GlobAI::Normal;
@@ -93,7 +94,7 @@ void Glob::think() {
 					changeAnimation(GlobState::Idle, true);
 				}
 			}
-			thinkTimer = rand() % 5;
+			thinkTimer = static_cast<float>(getRandomNumber(5));
 		}
 	}
 	// If chasing
@@ -192,7 +193,7 @@ void Glob::updateDamage() {
 					hp -= enemy->getDamage();
 					if (hp > 0) {
 						SoundManager::play("enemyHit");
-						invincibleTimer = 0.1;
+						invincibleTimer = 0.1f;
 					}
 					// Slide backwards from the enemy
 					slideAngle = Entity::getAngle(enemy, this);

@@ -177,7 +177,7 @@ void Game::update() {
 					// Random position within accessible area
 					/*x=*/ getRandomNumber(Globals::WIDTH - 96) + 64,
 					/*y=*/ getRandomNumber(Globals::HEIGHT - 96) + 64,
-					/*invincible=*/ 0.1
+					/*invincible=*/ 0.1f
 				);
 				++enemiesQty;
 				enemies.push_back(enemy);
